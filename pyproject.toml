@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "gloop"
+version = "1.0.0"
+description = "Tray app to easily switch between global Git users"
+authors = ["Cripterhack <edgar.cripter@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/cripterhack/gloop"
+repository = "https://github.com/cripterhack/gloop"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+PyQt5 = "^5.15.10"
+requests = "^2.32.0"
+
+[tool.poetry.group.dev.dependencies]
+pyinstaller = "^6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

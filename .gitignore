@@ -1,0 +1,35 @@
+.ignore/
+.cursor/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux
+*~
+
+# IDEs
+.vscode/
+.idea/
+
+# Archivos de configuración locales
+.git_user_icon.png
+.git_profiles.json
