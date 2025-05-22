@@ -27,6 +27,10 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
 
+      - name: Instalar dependencias de desarrollo
+        run: |
+          pip install black flake8 isort
+
       - name: Build executable
         run: |
           pyinstaller --noconfirm --onefile --windowed src/main.py --name gloop
@@ -42,6 +46,15 @@ jobs:
             mv dist/gloop dist_release/gloop-linux
           fi
         shell: bash
+
+      - name: Verificar formato con black
+        run: black --check src
+
+      - name: Verificar imports con isort
+        run: isort --check-only src
+
+      - name: Lint con flake8
+        run: flake8 src
 
       - name: Upload release artifact
         uses: softprops/action-gh-release@v2
