@@ -1,38 +1,40 @@
-# Contribuir a Gloop
+# Contributing to Gloop
 
-¡Gracias por tu interés en contribuir a **Gloop**!
+Thank you for your interest in contributing to **Gloop**!
 
-Gloop es una herramienta libre que busca hacer más fácil el manejo de múltiples identidades de Git. Agradecemos sugerencias, reportes de errores y contribuciones de código.
+Gloop is a free tool aimed at making it easier to manage multiple Git identities. We welcome suggestions, bug reports, and code contributions.
 
-## Formas de contribuir
+## Ways to contribute
 
-- Reportar errores
-- Sugerir mejoras o nuevas funcionalidades
-- Traducir la aplicación
-- Mejorar el diseño de interfaz
-- Documentación
-- Crear paquetes o instaladores para más plataformas
+- Report bugs
+- Suggest improvements or new features
+- Translate the application
+- Improve the interface design
+- Documentation
+- Create packages or installers for more platforms
 
-## Cómo empezar
+## How to get started
 
-1. Haz un fork del repositorio
-2. Crea una nueva rama: `git checkout -b mi-funcionalidad`
-3. Realiza tus cambios
-4. Asegúrate de que el código se vea limpio y pase pruebas básicas
-5. Envía un Pull Request describiendo lo que hiciste
+1. Fork the repository
+2. Create a new branch: `git checkout -b my-feature`
+3. Make your changes
+4. Make sure the code looks clean and passes basic tests
+5. Submit a Pull Request describing what you did
 
-## Buenas prácticas
+## Best practices
 
-- Escribe mensajes de commit claros
-- Usa `snake_case` para funciones y variables
-- Mantén las funcionalidades independientes
-- Evita agregar dependencias innecesarias
+- Write clear commit messages
+- Use `snake_case` for functions and variables
+- Keep features independent
+- Avoid adding unnecessary dependencies
 
-## Código de conducta
+## Code of Conduct
 
-Este proyecto sigue un principio de respeto, inclusión y colaboración.
-No se tolerarán conductas discriminatorias ni ofensivas.
+This project follows a principle of respect, inclusion, and collaboration.
+Discriminatory or offensive behavior will not be tolerated.
 
 ---
 
-¿Tienes dudas? Abre una [Discussion](https://github.com/tu_usuario/gloop/discussions) o escríbenos por issues.
+Have questions? Open a [Discussion](https://github.com/your_user/gloop/discussions) or contact us via issues.
+
+Also read our [Code of Conduct](CODE_OF_CONDUCT.md).
