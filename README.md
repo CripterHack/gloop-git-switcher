@@ -1,28 +1,32 @@
 # Gloop
 
-Gloop es una aplicación de escritorio multiplataforma que te permite cambiar fácilmente entre múltiples identidades globales de Git (nombre y correo) desde la bandeja del sistema (system tray). Diseñado para desarrolladores que manejan cuentas personales, laborales y de proyectos open source de forma separada.
+<p align="center">
+  <img src="gloop-icon@512.png" alt="Gloop Logo" width="512" height="512"/>
+</p>
+
+Gloop is a cross-platform desktop application that allows you to easily switch between multiple global Git identities (name and email) from the system tray. Designed for developers who manage personal, work, and open source project accounts separately.
 
 ---
 
-## ✨ Características
+## ✨ Features
 
-- Detecta el usuario global actual de Git (`user.name` y `user.email`)
-- Cambia entre diferentes perfiles desde un menú en el system tray
-- Icono dinámico basado en el avatar de GitHub del usuario activo
-- Almacena perfiles de forma local en `~/.git_profiles.json`
-- Interfaz simple y sin telemetría
+- Detects the current global Git user (`user.name` and `user.email`)
+- Switches between different profiles from a system tray menu
+- Dynamic icon based on the active user's GitHub avatar
+- Stores profiles locally in `~/.git_profiles.json`
+- Simple interface and no telemetry
 
 ---
 
-## 🚀 Instalación
+## 🚀 Installation
 
-### Requisitos
+### Requirements
 
-- Python 3.10 o superior
-- `git` instalado
-- Conexión a internet (opcional, para descargar avatares)
+- Python 3.10 or higher
+- `git` installed
+- Internet connection (optional, to download avatars)
 
-### Dependencias
+### Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -30,7 +34,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Ejecución
+## ▶️ Running
 
 ```bash
 python src/main.py
@@ -38,35 +42,62 @@ python src/main.py
 
 ---
 
-## 🧱 Estructura del Proyecto
+## 🧱 Project Structure
 
 ```
 gloop/
-├── assets/                 # Íconos y gráficos del proyecto
-├── src/                    # Código fuente principal
-├── .github/                # Workflows de GitHub y funding
-├── docs/                   # Documentos adicionales
+├── assets/                 # Project icons and graphics
+├── src/                    # Main source code
+│   ├── main.py             # Entry point
+│   ├── ui_tray.py          # System tray logic (UI)
+│   ├── git_profiles.py     # Git profile management
+│   ├── git_user.py         # Git global interaction
+│   └── avatar.py           # User avatar fetching
+├── tests/                  # Automated tests (pytest)
+├── .github/                # GitHub workflows and funding
+├── docs/                   # Additional documents
 ├── requirements.txt
 ├── pyproject.toml
 ├── README.md
 ├── LICENSE
 ├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
 ├── .gitignore
 ```
 
 ---
 
-## 🖼️ Íconos disponibles
+## 🖼️ Available Icons
 
 * PNG: 16x16, 32x32, 64x64, 128x128, 256x256
 * Windows: `gittrayapp_icon.ico`
 * macOS: `gittrayapp_icon.icns`
 
-Coloca estos íconos en la carpeta `assets/`.
+Place these icons in the `assets/` folder.
 
 ---
 
-## 🖥️ Compilación con PyInstaller
+## 🖼️ Visual Usage Example
+
+Below are screenshots of the system tray and the user selection menu in Gloop:
+
+| System Tray (active icon) | User Selection Menu |
+|:------------------------:|:------------------:|
+| ![Tray Icon](docs/captura_tray.png) | ![User Menu](docs/captura_menu.png) |
+
+**Basic flow:**
+1. Click the Gloop icon in the system tray.
+2. View the current global Git user and available profiles.
+3. Select a profile to instantly change the global Git user (you'll receive visual confirmation).
+4. Add new profiles from the menu (name and email are validated).
+5. Delete profiles from each profile's context menu (with confirmation).
+6. If Git is not configured or there are errors, clear warnings will be shown.
+
+> Gloop validates entered data and provides visual feedback for all important actions, improving experience and robustness.
+
+---
+
+## 🖥️ Building with PyInstaller
 
 ### Windows
 
@@ -82,23 +113,23 @@ pyinstaller --noconfirm --onefile --windowed src/main.py --icon=assets/gittrayap
 
 ---
 
-## 🐧 Integración con Linux (.desktop)
+## 🐧 Linux Integration (.desktop)
 
-Crea un archivo `~/.local/share/applications/gloop.desktop` con el siguiente contenido:
+Create a file `~/.local/share/applications/gloop.desktop` with the following content:
 
 ```desktop
 [Desktop Entry]
 Type=Application
 Name=Gloop
 Comment=Switch between global Git identities easily
-Exec=python3 /ruta/a/gloop/src/main.py
-Icon=/ruta/a/gloop/assets/gittrayapp_icon_128x128.png
+Exec=python3 /path/to/gloop/src/main.py
+Icon=/path/to/gloop/assets/gloop-icon@128.png
 Terminal=false
 Categories=Development;Utility;
 StartupNotify=true
 ```
 
-Hazlo ejecutable:
+Make it executable:
 
 ```bash
 chmod +x ~/.local/share/applications/gloop.desktop
@@ -106,42 +137,56 @@ chmod +x ~/.local/share/applications/gloop.desktop
 
 ---
 
-## ✅ Checklist de funcionalidades futuras
+## 🧪 Automated Tests
 
-* [ ] Mostrar tooltip o copia rápida de `git clone` con el usuario activo
-* [ ] Detectar proveedor Git (GitHub, GitLab) y sugerir comandos
-* [ ] Configuración local por carpeta (modo repo-specific)
-* [ ] Integración con llaves SSH y `.ssh/config`
-* [ ] Historial de cambios y actividad de usuarios
-* [ ] Interfaz completa para gestión de perfiles
-* [ ] Traducción multilenguaje
+Unit tests are located in the `tests/` folder and cover profile management, Git interaction, and avatar fetching. Run all tests with:
+
+```bash
+pytest
+```
 
 ---
 
-## 🌍 Difusión y colaboración
+## ✅ Future Features Checklist
 
-Consulta `docs/guia-estrategica.md` para conocer cómo puedes apoyar la difusión del proyecto, contribuir o generar forks para adaptaciones futuras.
+* [ ] Show tooltip or quick copy of `git clone` with the active user
+* [ ] Detect Git provider (GitHub, GitLab) and suggest commands
+* [ ] Local configuration per folder (repo-specific mode)
+* [ ] Integration with SSH keys and `.ssh/config`
+* [ ] User change and activity history
+* [ ] Full interface for profile management
+* [ ] Multilanguage translation
 
 ---
 
-## ❤️ Contribuciones
+## 🟢 Current Development Status
 
-Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para conocer cómo puedes colaborar con mejoras, reportes o traducciones.
+- MVP 0: ✅ Completed (bootstrap, structure, CI, basic documentation)
+- MVP 1: ✅ Completed (core functionality, data validation, visual feedback, automated tests, profile deletion option, robustness validated by tests)
+- MVP 2: ⬜ In progress (UX improvements, multiplatform support, advanced error messages)
+
+> All MVP 1 features have been implemented and automatically validated by unit tests. The data validation and visual feedback system meets the robustness and user experience standards defined in the strategic guide.
 
 ---
 
-## 💸 Apoya este proyecto
+## ❤️ Contributions
 
-Este proyecto es libre y sin rastreadores. Si te resulta útil, puedes apoyarlo:
+See [CONTRIBUTING.md](CONTRIBUTING.md) to learn how you can help with improvements, reports, or translations.
+
+Also see our [Code of Conduct](CODE_OF_CONDUCT.md) to maintain a healthy and respectful environment.
+
+---
+
+## 💸 Support this project
+
+This project is free and has no trackers. If you find it useful, you can support it:
 
 * [GitHub Sponsors](https://github.com/sponsors/cripterhack)
-* [Ko-fi](https://ko-fi.com/cripterhack)
-* [Patreon](https://patreon.com/cripterhack)
 
-(Ver `.github/FUNDING.yml`)
+(See `.github/FUNDING.yml`)
 
 ---
 
-## 🧠 Licencia
+## 🧠 License
 
-MIT — Puedes usar, modificar y compartir este proyecto con libertad.
+MIT — You can use, modify, and share this project freely.
