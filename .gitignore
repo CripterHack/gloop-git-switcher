@@ -30,6 +30,6 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Archivos de configuración locales
+# Local configuration files
 .git_user_icon.png
 .git_profiles.json
